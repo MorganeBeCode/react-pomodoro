@@ -3,3 +3,6 @@ jspm_packages/
 dist/
 src/.cache/
 src/dist/
+
+src/js/materialize.js
+src/js/materialize.min.js

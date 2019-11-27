@@ -1,47 +1,52 @@
 body {
     background-color: #b398ff;
-    min-height: 100vh;
     font-family: sans-serif;
+}
+#timer {
+    margin-top: 15%;
 }
 #time {
     font-size: 7rem;
     color: white;
-    display: flex;
-    flex-direction: row;
     padding: 3rem;
 }
 #clock {
     background-color: rgba(255, 255, 255, 0.3);
-    width: 45%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+}
+#clock .row {
+    margin-bottom: 0;
 }
 #buttons {
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 10rem;
     padding: 1.5rem;
 }
+.btn-large {
+    background-color: #b88cff !important;
+    font-size: 1.1rem;
+}
+.btn-large:hover {
+    background-color: #bf97ff !important;
+}
 
-#buttons button {
-    color: white;
-    font-size: 2rem;
-    border: none;
-    background-color: #ffffff00;
-    height: 25%;
+/* tablets */
+@media only screen and (max-width: 1025px) {
+    #timer {
+        margin-top: 45%;
+    }
+    #time {
+        font-size: 5rem;
+    }
 }
-#buttons button:hover {
-    border: none;
-    background-color: rgba(255, 255, 255, 0.5);
-    height: 25%;
-}
-#content {
-    margin-top: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+/* mobile */
+@media only screen and (max-width: 767px) {
+    #timer {
+        margin-top: 50%;
+    }
+    #time {
+        font-size: 3rem;
+    }
 }
