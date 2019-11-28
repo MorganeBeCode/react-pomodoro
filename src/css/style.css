@@ -26,9 +26,19 @@ body {
 .btn-large {
     background-color: #b88cff !important;
     font-size: 1.1rem;
+    z-index: 0;
 }
 .btn-large:hover {
     background-color: #bf97ff !important;
+}
+
+/* modal */
+.btn-small {
+    background-color: #bf97ff !important;
+    margin: 4rem 1rem 2rem 1rem;
+}
+.btn-small:hover {
+    background-color: #c4a2fa !important;
 }
 
 /* tablets */

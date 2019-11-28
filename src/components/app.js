@@ -1,5 +1,6 @@
 import React from "react";
 import View from "./view";
+import ModalComponent from "./modal";
 
 const format = time => {
     let timeStr = "";
@@ -11,9 +12,9 @@ const format = time => {
     } else {
         timeStr = `${minutes}:${seconds}`;
     }
-
     return timeStr;
 };
+
 export default class App extends React.Component {
     constructor(props) {
         super(props);
@@ -21,17 +22,23 @@ export default class App extends React.Component {
             prevTime: 1500,
             time: 1500,
             running: false,
-            message: "This is a message",
+            modalIsOpen: false,
         };
         this.toggleTimer = this.toggleTimer.bind(this);
         this.incrementTime = this.incrementTime.bind(this);
         this.decrementTime = this.decrementTime.bind(this);
         this.resetTimer = this.resetTimer.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+        this.closeAndRestart = this.closeAndRestart.bind(this);
     }
 
     time() {
         const ref = setInterval(() => {
-            if (this.state.time <= 0 || this.state.running === false) {
+            if (this.state.time === 0) {
+                clearInterval(ref);
+                this.openModal();
+            } else if (this.state.running === false) {
                 clearInterval(ref);
             } else {
                 this.setState(prefState => ({
@@ -42,18 +49,14 @@ export default class App extends React.Component {
     }
 
     toggleTimer() {
-        const running = this.state.running;
-        if (running === false) {
+        if (this.state.running === false) {
             this.setState(() => ({
                 running: true,
             }));
             this.time();
-        } else if (running === true) {
-            this.setState(() => ({
-                message: "Please stay focused",
-            }));
         }
     }
+
     incrementTime() {
         if (this.state.running === false) {
             this.setState(prefState => ({
@@ -62,6 +65,7 @@ export default class App extends React.Component {
             }));
         }
     }
+
     decrementTime() {
         if (this.state.running === false) {
             if (this.state.time > 300) {
@@ -72,11 +76,30 @@ export default class App extends React.Component {
             }
         }
     }
+
     resetTimer() {
         this.setState(prevState => ({
-            running: false,
             time: prevState.prevTime,
+            running: false,
         }));
+    }
+
+    openModal() {
+        this.setState({
+            modalIsOpen: true,
+        });
+    }
+
+    closeModal() {
+        this.setState({
+            modalIsOpen: false,
+        });
+    }
+
+    closeAndRestart() {
+        this.closeModal();
+        this.resetTimer();
+        this.toggleTimer();
     }
 
     render() {
@@ -89,6 +112,12 @@ export default class App extends React.Component {
                     decrementTime={this.decrementTime}
                     resetTimer={this.resetTimer}
                 />{" "}
+                <ModalComponent
+                    isOpen={this.state.modalIsOpen}
+                    openModal={this.openModal}
+                    closeModal={this.closeModal}
+                    restartTimer={this.closeAndRestart}
+                />
             </div>
         );
     }
