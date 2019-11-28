@@ -53,6 +53,14 @@ export default class View extends React.Component {
                         </div>
                     </div>
                 </div>
+                <div className={"row"}>
+                    <button
+                        className={"waves-effect waves-light btn-small trigger"}
+                        type={"button"}
+                        onClick={this.props.openModal}>
+                        {"Trigger Modal"}
+                    </button>
+                </div>
             </div>
         );
     }

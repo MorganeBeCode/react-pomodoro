@@ -31,11 +31,16 @@ body {
 .btn-large:hover {
     background-color: #bf97ff !important;
 }
+.trigger {
+    left: 50%;
+    transform: translate(-50%);
+}
 
 /* modal */
 .btn-small {
     background-color: #bf97ff !important;
     margin: 4rem 1rem 2rem 1rem;
+    z-index: 0;
 }
 .btn-small:hover {
     background-color: #c4a2fa !important;

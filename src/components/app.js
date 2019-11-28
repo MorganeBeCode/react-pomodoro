@@ -85,6 +85,7 @@ export default class App extends React.Component {
     }
 
     openModal() {
+        this.resetTimer();
         this.setState({
             modalIsOpen: true,
         });
@@ -98,7 +99,6 @@ export default class App extends React.Component {
 
     closeAndRestart() {
         this.closeModal();
-        this.resetTimer();
         this.toggleTimer();
     }
 
@@ -111,6 +111,7 @@ export default class App extends React.Component {
                     incrementTime={this.incrementTime}
                     decrementTime={this.decrementTime}
                     resetTimer={this.resetTimer}
+                    openModal={this.openModal}
                 />{" "}
                 <ModalComponent
                     isOpen={this.state.modalIsOpen}
