@@ -54,6 +54,12 @@ export default class App extends React.Component {
                 running: true,
             }));
             this.time();
+            document.querySelector(".toggle").innerText = "stop";
+        } else {
+            this.setState(() => ({
+                running: false,
+            }));
+            document.querySelector(".toggle").innerText = "start";
         }
     }
 

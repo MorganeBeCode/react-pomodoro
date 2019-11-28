@@ -19,7 +19,7 @@ export default class View extends React.Component {
                             <div className={"col l2 m4 s6"} id={"buttons"}>
                                 <button
                                     className={
-                                        "waves-effect waves-light btn-large"
+                                        "waves-effect waves-light btn-large toggle"
                                     }
                                     type={"button"}
                                     onClick={this.props.startTimer}>
@@ -58,7 +58,7 @@ export default class View extends React.Component {
                         className={"waves-effect waves-light btn-small trigger"}
                         type={"button"}
                         onClick={this.props.openModal}>
-                        {"Trigger Modal"}
+                        {"Trigger Modal \n (for testing purposes)"}
                     </button>
                 </div>
             </div>
