@@ -88,6 +88,7 @@ export default class App extends React.Component {
             time: prevState.prevTime,
             running: false,
         }));
+        document.querySelector(".toggle").innerText = "start";
     }
 
     openModal() {
