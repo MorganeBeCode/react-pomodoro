@@ -1,2 +1,8 @@
 node_modules/
 dist/
+.cache
+.eslintrc.js
+.eslintignore
+.eslintcache
+.prettierrc
+package-lock.json
