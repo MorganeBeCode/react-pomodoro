@@ -1,6 +1,6 @@
 node_modules/
 dist/
-src/.cache
+src/.cache/
 .eslintrc.js
 .eslintignore
 .eslintcache
