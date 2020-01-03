@@ -20,7 +20,7 @@ A timer for the Pomodoro technique.
 -   -   [x] Button to close the modal
 -   -   [x] Button to close the modal and start a new timer
 
-## Tools
+## Ressources
 
 -   [Materialize](https://materializecss.com/)
 -   [ESLint](https://eslint.org/)
